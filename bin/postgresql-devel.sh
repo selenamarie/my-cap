@@ -1,18 +1,18 @@
 #!/bin/sh
 
-export VERSION=devel
+export TAG=REL9_1_BETA2
 export PERL=/usr/local/bin/perl
-export BASE=/usr/local/pgsql-$VERSION
+export BASE=/opt/pgsql-$TAG
 
-cd ~/dev/postgresql
+cd ~/proj/repos/postgresql
 if [ -f GNUmakefile ]; then
     make maintainer-clean
 fi
-git checkout master
+git checkout $TAG
 git pull
 sudo rm -rf $BASE
 # Add  --enable-cassert --enable-debug for debugging.
-./configure --with-libs=/usr/local/lib  --with-includes=/usr/local/include --prefix=$BASE --with-libxml  --with-ossp-uuid --with-perl PERL=$PERL || exit $?
+./configure --with-libs=/usr/local/lib  --with-includes=/usr/local/include --prefix=$BASE --with-libxml  --with-python --with-ossp-uuid --with-perl PERL=$PERL || exit $?
 make -j3 || exit $?
 sudo make install || exit $?
 
