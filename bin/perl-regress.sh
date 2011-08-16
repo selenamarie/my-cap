@@ -13,7 +13,7 @@ do
         rm -rf perl-$VERSION
         tar jxf perl-$VERSION.tar.bz2 || exit $?
         cd perl-$VERSION
-        sh Configure -des -Dprefix=$BASE -Dperladmin=david@kineticode.com -Dcf_email=david@kineticode.com || exit $?
+        sh Configure -des -Dprefix=$BASE -Dperladmin=selena@chesnok.com -Dcf_email=selena@chesnok.com || exit $?
         make -j3 || exit $?
         make test
         make install || exit $?
@@ -30,7 +30,7 @@ if [ ! -e "$BASE" ]; then
     rm -rf perl-$VERSION
     tar zxf perl-$VERSION.tar.gz || exit $?
     cd perl-$VERSION
-    sh Configure -des -Dprefix=$BASE -Dperladmin=david@kineticode.com -Dcf_email=david@kineticode.com || exit $?
+    sh Configure -des -Dprefix=$BASE -Dperladmin=selena@chesnok.com -Dcf_email=selena@chesnok.com || exit $?
     perl -i -nle 'print unless /<(built-in|command(\s+|-)line)>/' GNUmakefile x2p/GNUmakefile
     make -j3 || exit $?
     make test

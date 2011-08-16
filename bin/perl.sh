@@ -15,7 +15,7 @@ if [ $OS = 'Darwin' ]; then
     curl 'http://perl5.git.perl.org/perl.git/patch/60a655a1ee05c577268377c1135ffabc34dbff43?hp=17f2f4a89572b1fc2df3bb61fe31eaab28f9b315' | patch -p1
 fi
 
-sh Configure -des -Duseshrplib -Dusemultiplicity -Duseithreads -Dinc_version_list=none -Dperladmin=david@kineticode.com -Dcf_email=david@kineticode.com || exit $?
+sh Configure -des -Duseshrplib -Dusemultiplicity -Duseithreads -Dinc_version_list=none -Dperladmin=selena@chesnok.com -Dcf_email=selena@chesnok.com || exit $?
 # * -Dusershrplib required for embedding, e.g. PL/Perl.
 # * -Dusemultiplicity required to allow multiple interpreters in one process,
 #   e.g., to allow both PL/Perl and PL/PerlU functions to be used in a single
