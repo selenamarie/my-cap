@@ -12,7 +12,7 @@ git checkout $TAG
 git pull
 sudo rm -rf $BASE
 # Add  --enable-cassert --enable-debug for debugging.
-./configure --with-libs=/usr/local/lib  --with-includes=/usr/local/include --prefix=$BASE --with-libxml  --with-python --with-ossp-uuid --with-perl PERL=$PERL || exit $?
+./configure --with-libs=/usr/local/lib  --with-libs=/usr/lib --with-libs=/usr/local/Cellar --with-includes=/usr/local/include --prefix=$BASE --with-python --with-ossp-uuid --with-perl PERL=$PERL || exit $?
 make -j3 || exit $?
 sudo make install || exit $?
 
@@ -24,7 +24,7 @@ make clean
 cd ..
 
 sudo mkdir $BASE/data || exit $?
-sudo chown -R postgres:postgres $BASE/data || exit $?
+sudo chown -R postgres $BASE/data || exit $?
 sudo -u postgres $BASE/bin/initdb --locale en_US.UTF-8 --encoding utf-8 -D $BASE/data || exit $?
 sudo mkdir $BASE/data/logs
-sudo chown -R postgres:postgres $BASE/data/logs
+sudo chown -R postgres $BASE/data/logs
